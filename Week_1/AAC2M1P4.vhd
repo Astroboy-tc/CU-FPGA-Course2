@@ -12,10 +12,12 @@ end Majority;
 --Architecture 
 Architecture behavioral of Majority is
 	begin 
-	mylabel:process(A,B,C)
-		begin
-			if (A and B)='1' or (A and C)='1' or (B and C)='1' then
-				Y <= '1';
-			end if;
-		end process mylabel;
+		process(A,B,C)
+			begin
+				if (A and B)='1' or (A and C)='1' or (B and C)='1' or (A and B and C) then
+					Y <= '1';
+				else
+					Y <= '0';
+				end if;
+		end process;
 	end behavioral;
